@@ -20,14 +20,15 @@
 
 namespace Authors\PixelgamesJail\commands;
 
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\Player;
+
 use Authors\PixelgamesJail\base\BaseCommand;
 use Authors\PixelgamesJail\Mines;
 use Authors\PixelgamesJail\economy\Economyapi;
 use Authors\PixelgamesJail\economy\Pocketmoney;
 use Authors\PixelgamesJail\economy\Economyplus;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\Player;
 
 class JailsellhandCommand extends BaseCommand
 {
