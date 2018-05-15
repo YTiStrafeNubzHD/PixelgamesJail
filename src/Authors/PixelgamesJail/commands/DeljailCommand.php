@@ -20,10 +20,11 @@
 
 namespace Authors\PixelgamesJail\commands;
 
-use Authors\PixelgamesJail\Jail;
-use Authors\PixelgamesJail\base\BaseCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
+
+use Authors\PixelgamesJail\Jail;
+use Authors\PixelgamesJail\base\BaseCommand;
 
 class DeljailCommand extends BaseCommand
 {
