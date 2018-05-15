@@ -20,8 +20,9 @@
 
 namespace Authors\PixelgamesJail\tasks\updater;
 
-use Authors\PixelgamesJail\base\BaseTask;
 use pocketmine\utils\Utils;
+
+use Authors\PixelgamesJail\base\BaseTask;
 
 class AutoUpdateChecker extends BaseTask
 {

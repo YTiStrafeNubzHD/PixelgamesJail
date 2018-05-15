@@ -23,6 +23,7 @@ namespace Authors\PixelgamesJail\tasks\updater;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use pocketmine\utils\Utils;
+
 use Authors\PixelgamesJail\Jail;
 
 class AsyncUpdateChecker extends AsyncTask

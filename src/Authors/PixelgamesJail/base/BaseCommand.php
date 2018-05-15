@@ -20,9 +20,10 @@
 
 namespace Authors\PixelgamesJail\base;
 
-use Authors\PixelgamesJail\Jail;
 use pocketmine\command\CommandExecutor;
 use pocketmine\plugin\PluginBase;
+
+use Authors\PixelgamesJail\Jail;
 
 abstract class BaseCommand extends PluginBase implements CommandExecutor
 

@@ -20,11 +20,12 @@
 
 namespace Authors\PixelgamesJail\listeners;
 
-use Authors\PixelgamesJail\base\BaseListener;
-use Authors\PixelgamesJail\Mines;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\level\Position;
+
+use Authors\PixelgamesJail\base\BaseListener;
+use Authors\PixelgamesJail\Mines;
 
 class BlockListener extends BaseListener
 {

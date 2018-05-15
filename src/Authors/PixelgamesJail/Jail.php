@@ -20,6 +20,14 @@
 
 namespace Authors\PixelgamesJail;
 
+use pocketmine\item\Item;
+use pocketmine\level\Position;
+use pocketmine\Player;
+use pocketmine\plugin\PluginBase;
+use pocketmine\utils\Config;
+use pocketmine\utils\TextFormat;
+use pocketmine\utils\Utils;
+
 use Authors\PixelgamesJail\commands\BailCommand;
 use Authors\PixelgamesJail\commands\DeljailCommand;
 use Authors\PixelgamesJail\commands\JailCommand;
@@ -45,13 +53,6 @@ use Authors\PixelgamesJail\tasks\JailTimingTask;
 use Authors\PixelgamesJail\tasks\TimeBroadcastTask;
 use Authors\PixelgamesJail\tasks\updater\AsyncUpdateChecker;
 use Authors\PixelgamesJail\tasks\updater\AutoUpdateChecker;
-use pocketmine\item\Item;
-use pocketmine\level\Position;
-use pocketmine\Player;
-use pocketmine\plugin\PluginBase;
-use pocketmine\utils\Config;
-use pocketmine\utils\TextFormat;
-use pocketmine\utils\Utils;
 
 class Jail extends PluginBase implements JailAPI
 {

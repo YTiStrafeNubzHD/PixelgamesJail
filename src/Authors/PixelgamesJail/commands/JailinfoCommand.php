@@ -20,10 +20,11 @@
 
 namespace Authors\PixelgamesJail\commands;
 
-use Authors\PixelgamesJail\base\BaseCommand;
-use Authors\PixelgamesJail\Mines;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+
+use Authors\PixelgamesJail\base\BaseCommand;
+use Authors\PixelgamesJail\Mines;
 
 class JailinfoCommand extends BaseCommand
 {

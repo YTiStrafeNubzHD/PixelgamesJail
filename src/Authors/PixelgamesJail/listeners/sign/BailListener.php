@@ -20,7 +20,6 @@
 
 namespace Authors\PixelgamesJail\listeners\sign;
 
-use Authors\PixelgamesJail\base\BaseListener;
 use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\SignChangeEvent;
@@ -28,6 +27,8 @@ use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\tile\Sign;
 use pocketmine\level\Position;
 use pocketmine\math\Vector3;
+
+use Authors\PixelgamesJail\base\BaseListener;
 
 class BailListener extends BaseListener
 
