@@ -20,8 +20,6 @@
 
 namespace Authors\PixelgamesJail\listeners;
 
-use Authors\PixelgamesJail\base\BaseListener;
-use Authors\PixelgamesJail\Mines;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
 use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PlayerInteractEvent;
@@ -30,6 +28,9 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\level\Position;
+
+use Authors\PixelgamesJail\base\BaseListener;
+use Authors\PixelgamesJail\Mines;
 
 class PlayerListener extends BaseListener
 {
