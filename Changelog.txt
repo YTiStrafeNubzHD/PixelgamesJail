@@ -1,0 +1,4 @@
+Changelog PixelgamesJail:
+
+v0.1-release: Release mit neuen Namespaces usw. und ohne die anderen Language-Dateien
+v
