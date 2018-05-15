@@ -1,7 +1,7 @@
 name: PixelgamesJail
 main: Authors\PixelgamesJail\Jail
 api: 3.0.0-ALPHA12
-version: 0.1-release
+version: 0.2-alpha
 author: hoyinm14mc, iStrafeNubzHDyt
 description: An advanced jail punishment system for PocketMine servers
 load: POSTWORLD
