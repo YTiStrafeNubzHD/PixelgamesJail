@@ -22,9 +22,7 @@ namespace Authors\PixelgamesJail\commands;
 
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
-use pocketmine\Player;
 
-use Authors\PixelgamesJail\Jail;
 use Authors\PixelgamesJail\base\BaseCommand;
 
 class SwitchjailCommand extends BaseCommand
