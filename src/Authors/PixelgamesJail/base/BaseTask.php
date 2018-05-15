@@ -21,8 +21,9 @@
 
 namespace Authors\PixelgamesJail\base;
 
-use Authors\PixelgamesJail\Jail;
 use pocketmine\scheduler\PluginTask;
+
+use Authors\PixelgamesJail\Jail;
 
 abstract class BaseTask extends PluginTask
 {
