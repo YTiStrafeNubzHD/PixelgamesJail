@@ -20,8 +20,9 @@
 
 namespace Authors\PixelgamesJail\base;
 
-use Authors\PixelgamesJail\Jail;
 use pocketmine\event\Listener;
+
+use Authors\PixelgamesJail\Jail;
 
 abstract class BaseListener implements Listener
 {
