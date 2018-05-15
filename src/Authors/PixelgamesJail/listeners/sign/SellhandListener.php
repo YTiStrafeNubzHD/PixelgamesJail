@@ -20,8 +20,6 @@
 
 namespace Authors\PixelgamesJail\listeners\sign;
 
-use Authors\PixelgamesJail\base\BaseListener;
-use Authors\PixelgamesJail\Mines;
 use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\SignChangeEvent;
@@ -29,6 +27,9 @@ use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\level\Position;
 use pocketmine\math\Vector3;
 use pocketmine\tile\Sign;
+
+use Authors\PixelgamesJail\base\BaseListener;
+use Authors\PixelgamesJail\Mines;
 
 class SellhandListener extends BaseListener
 {
