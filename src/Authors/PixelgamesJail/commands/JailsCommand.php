@@ -23,7 +23,6 @@ namespace Authors\PixelgamesJail\commands;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 
-use Authors\PixelgamesJail\Jail;
 use Authors\PixelgamesJail\base\BaseCommand;
 
 class JailsCommand extends BaseCommand

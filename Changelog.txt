@@ -2,4 +2,5 @@ Changelog PixelgamesJail:
 
 v0.1-release: Release mit neuen Namespaces usw. und ohne die anderen Language-Dateien
 v0.2-alpha: bessere Sortierung der Imports
+v0.3-alpha: ungenutzte Imports entfernt
 v

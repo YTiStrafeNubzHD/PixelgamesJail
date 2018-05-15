@@ -24,7 +24,6 @@ use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\Player;
 
-use Authors\PixelgamesJail\Jail;
 use Authors\PixelgamesJail\base\BaseListener;
 
 class EntityListener extends BaseListener
