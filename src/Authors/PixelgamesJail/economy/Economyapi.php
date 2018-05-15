@@ -20,9 +20,10 @@
 
 namespace Authors\PixelgamesJail\economy;
 
-use Authors\PixelgamesJail\base\BaseEconomy;
 use pocketmine\item\Item;
 use pocketmine\Player;
+
+use Authors\PixelgamesJail\base\BaseEconomy;
 
 class Economyapi extends BaseEconomy
 {
