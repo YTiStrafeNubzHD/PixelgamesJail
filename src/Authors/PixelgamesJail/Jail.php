@@ -369,9 +369,6 @@ class Jail extends PluginBase implements JailAPI
                 $this->lang[substr($filename, 5, -5)] = json_decode(file_get_contents($resource->getPathname()), true);
             }
         }
-
-        $lang = $this->getConfig()->get("default-lang");
-        $this->lang["def"] = (new Config($this->getDataFolder() . "messages.yml", Config::YAML, $this->lang[$lang]))->getAll();
     }
 
     /**
