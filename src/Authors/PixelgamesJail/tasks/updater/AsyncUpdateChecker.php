@@ -34,7 +34,6 @@ class AsyncUpdateChecker extends AsyncTask
     public function __construct($complexData = null, string $channel)
     {
         $this->channel = $channel;
-        parent::__construct($complexData);
     }
 
 
