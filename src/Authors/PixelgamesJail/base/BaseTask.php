@@ -22,10 +22,11 @@
 namespace Authors\PixelgamesJail\base;
 
 use pocketmine\scheduler\PluginTask;
+use pocketmine\scheduler\Task;
 
 use Authors\PixelgamesJail\Jail;
 
-abstract class BaseTask extends PluginTask
+abstract class BaseTask extends Task
 {
     private $plugin;
 
@@ -33,7 +34,6 @@ abstract class BaseTask extends PluginTask
     public function __construct(Jail $plugin)
     {
         $this->plugin = $plugin;
-        parent::__construct($plugin);
     }
 
 
