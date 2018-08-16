@@ -5,4 +5,5 @@ v0.2-alpha: bessere Sortierung der Imports
 v0.3-alpha: ungenutzte Imports entfernt
 v0.4-alpha: 2 Zeilen zum Language-System entfernt (weil Fehler: „Disabling PGJail...“) (INSTABIL?)
 v0.5-alpha: AutoUpdate deaktiviert, Zeile entfernt
+v0.6-alpha: AutoUpdate deaktiviert (2) und Scheduler-Fix nach Servercrash; Allg. API-Update auf 3.0.0 und 4.0.0
 v
