@@ -21,11 +21,12 @@
 namespace Authors\PixelgamesJail\base;
 
 use pocketmine\command\CommandExecutor;
-use pocketmine\plugin\PluginBase;
+use pocketmine\command\PluginCommand;
+use pocketmine\plugin\Plugin;
 
 use Authors\PixelgamesJail\Jail;
 
-abstract class BaseCommand extends PluginBase implements CommandExecutor
+abstract class BaseCommand extends PluginCommand implements CommandExecutor
 
 {
     private $plugin;
@@ -34,10 +35,11 @@ abstract class BaseCommand extends PluginBase implements CommandExecutor
     public function __construct(Jail $plugin)
     {
         $this->plugin = $plugin;
+        parent::__construct("Jail", $plugin);
     }
 
 
-    public function getPlugin(): Jail
+    public function getPlugin(): Plugin
     {
         return $this->plugin;
     }
