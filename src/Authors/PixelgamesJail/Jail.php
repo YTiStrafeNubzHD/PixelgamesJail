@@ -51,8 +51,8 @@ use Authors\PixelgamesJail\listeners\sign\ResetmineListener;
 use Authors\PixelgamesJail\listeners\sign\SellhandListener;
 use Authors\PixelgamesJail\tasks\JailTimingTask;
 use Authors\PixelgamesJail\tasks\TimeBroadcastTask;
-use Authors\PixelgamesJail\tasks\updater\AsyncUpdateChecker;
-use Authors\PixelgamesJail\tasks\updater\AutoUpdateChecker;
+// use Authors\PixelgamesJail\tasks\updater\AsyncUpdateChecker;
+// use Authors\PixelgamesJail\tasks\updater\AutoUpdateChecker;
 
 class Jail extends PluginBase implements JailAPI
 {
@@ -250,8 +250,8 @@ class Jail extends PluginBase implements JailAPI
         $this->getCommand("jailresetmine")->setExecutor(new JailresetmineCommand($this));
         $this->getCommand("jailinfo")->setExecutor(new JailinfoCommand($this));
         $this->getCommand("prisonerinfo")->setExecutor(new PrisonerinfoCommand($this));
-        $this->getServer()->getScheduler()->scheduleRepeatingTask(new JailTimingTask($this), 20);
-        $this->getServer()->getScheduler()->scheduleRepeatingTask(new TimeBroadcastTask($this), 3);
+        $this->getScheduler()->scheduleRepeatingTask(new JailTimingTask($this), 20);
+        $this->getScheduler()->scheduleRepeatingTask(new TimeBroadcastTask($this), 3);
         $this->getServer()->getPluginManager()->registerEvents(new PlayerListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new BlockListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new EntityListener($this), $this);
@@ -266,9 +266,9 @@ class Jail extends PluginBase implements JailAPI
 
         $this->getLogger()->info($this->colorMessage("&aLoaded Successfully!"));
 
-        if ($this->getConfig()->get("scheduled-update-checker") !== false) {
+        /* if ($this->getConfig()->get("scheduled-update-checker") !== false) {
             $this->getLogger()->info($this->colorMessage("&eInitialized scheduled update checker"));
-            $this->getServer()->getScheduler()->scheduleRepeatingTask(new AutoUpdateChecker($this), 60 * 20 * (int)$this->getConfig()->get("scheduled-update-checker-interval"));
+            $this->getScheduler()->scheduleRepeatingTask(new AutoUpdateChecker($this), 60 * 20 * (int)$this->getConfig()->get("scheduled-update-checker-interval"));
 
         } else if ($this->getConfig()->get("updater-startup-fetch") !== false) {
 
@@ -281,14 +281,14 @@ class Jail extends PluginBase implements JailAPI
             } else {
 
                 if ($this->getConfig()->get("update-checker-channel") == "*") {
-                    $this->getServer()->getScheduler()->scheduleAsyncTask(new AsyncUpdateChecker(null, "poggit"));
-                    $this->getServer()->getScheduler()->scheduleAsyncTask(new AsyncUpdateChecker(null, "github"));
+                    $this->getScheduler()->scheduleAsyncTask(new AsyncUpdateChecker(null, "poggit"));
+                    $this->getScheduler()->scheduleAsyncTask(new AsyncUpdateChecker(null, "github"));
 
                 } else {
-                    $this->getServer()->getScheduler()->scheduleAsyncTask(new AsyncUpdateChecker(null, $this->getConfig()->get("update-checker-channel")));
+                    $this->getScheduler()->scheduleAsyncTask(new AsyncUpdateChecker(null, $this->getConfig()->get("update-checker-channel")));
                 }
             }
-        }
+        } */
     }
 
 
