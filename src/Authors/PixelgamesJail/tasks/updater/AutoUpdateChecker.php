@@ -29,10 +29,10 @@ class AutoUpdateChecker extends BaseTask
     public function onRun(int $currentTick)
     {
 
-        $this->getPlugin()->getLogger()->info($this->getPlugin()->colorMessage("&eStart fetching data..."));
+        $this->getPlugin()->getLogger()->info($this->getPlugin()->colorMessage("§eStarte das Abrufen von Daten..."));
 
         if (Utils::getOS() == "ios" || Utils::getOS() == "android") {
-            $this->getPlugin()->getLogger()->info($this->getPlugin()->colorMessage("&4Error: Mobile hosted servers are not supported!"));
+            $this->getPlugin()->getLogger()->info($this->getPlugin()->colorMessage("§4Fehler: Mobil gehostete Server werden nicht unterstützt!"));
 
         }else{
 

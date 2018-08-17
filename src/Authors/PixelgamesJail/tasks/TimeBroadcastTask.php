@@ -38,7 +38,7 @@ class TimeBroadcastTask extends BaseTask
                 $player = $this->getPlugin()->getServer()->getPlayer($name);
 
                 if ($player !== null) {
-                    $length = strlen("&3You have been jailed!");
+                    $length = strlen("§3Du wurdest eingesperrt!");
 
                     if (strlen($this->dots) + 5 != $length) {
                         $this->dots = $this->dots . ">";
