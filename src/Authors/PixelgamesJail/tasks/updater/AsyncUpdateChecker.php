@@ -86,43 +86,43 @@ class AsyncUpdateChecker extends AsyncTask
         switch ($this->channel) {
             case "poggit":
 
-                $plugin->getLogger()->info($plugin->colorMessage("&d>>>>> &fChannel: &3Poggit &d<<<<<"));
+                $plugin->getLogger()->info($plugin->colorMessage("§d>>>>> §fKanal: §3Poggit §d<<<<<"));
                 $no_update = true;
 
                 if (version_compare($this->getResult()["poggit_ver"], $plugin->getDescription()->getVersion(), ">") !== false) {
-                    $plugin->getLogger()->info($plugin->colorMessage("&aYour version is &coutdated&a! \n&fLatest version: &e" . $this->getResult()["poggit_ver"]));
-                    $plugin->getLogger()->info("\nUpdate details for v" . $this->getResult()["poggit_desc"] . "\nDownload Link: " . $this->getResult()["poggit_dllink"]);
+                    $plugin->getLogger()->info($plugin->colorMessage("§aDeine Version ist §cveraltet§a! \n§fAktuelle Version: §e" . $this->getResult()["poggit_ver"]));
+                    $plugin->getLogger()->info("\nUpdate-Details für v" . $this->getResult()["poggit_desc"] . "\nDownloadlink: " . $this->getResult()["poggit_dllink"]);
                     $no_update = false;
                 }
 
                 if ($no_update !== false) {
-                    $plugin->getLogger()->info($plugin->colorMessage("&aYou are owning the &clatest &aversion of Jail."));
+                    $plugin->getLogger()->info($plugin->colorMessage("§aDu besitzt die §caktuellste §aVersion von Jail."));
                 }
 
-                $plugin->getLogger()->info($plugin->colorMessage("&6-------------------------------"));
+                $plugin->getLogger()->info($plugin->colorMessage("§6-------------------------------"));
                 break;
 
             case "github":
 
-                $plugin->getLogger()->info($plugin->colorMessage("&d>>>>> &fChannel: &3Github &d<<<<<"));
+                $plugin->getLogger()->info($plugin->colorMessage("§d>>>>> §fKanal: §3Github §d<<<<<"));
                 $no_update = true;
 
                 if (version_compare($this->getResult()["github_ver"], $plugin->getDescription()->getVersion(), ">") !== false) {
-                    $plugin->getLogger()->info($plugin->colorMessage("&aYour version is &coutdated&a! \n&fLatest version: &e" . $this->getResult()["github_ver"]));
-                    $plugin->getLogger()->info("\nUpdate details for v" . $this->getResult()["github_desc"] . "\nDownload Link: " . $this->getResult()["github_dllink"]);
+                    $plugin->getLogger()->info($plugin->colorMessage("§aDeine Version ist §cveraltet§a! \n§fAktuelle Version: §e" . $this->getResult()["github_ver"]));
+                    $plugin->getLogger()->info("\nUpdate-Details für v" . $this->getResult()["github_desc"] . "\nDownloadlink: " . $this->getResult()["github_dllink"]);
                     $no_update = false;
                 }
 
                 if ($no_update !== false) {
-                    $plugin->getLogger()->info($plugin->colorMessage("&aYou are owning the &clatest &aversion of Jail."));
+                    $plugin->getLogger()->info($plugin->colorMessage("§aDu besitzt die §caktuellste §aVersion von Jail."));
                 }
 
-                $plugin->getLogger()->info($plugin->colorMessage("&6-------------------------------"));
+                $plugin->getLogger()->info($plugin->colorMessage("§6-------------------------------"));
                 break;
 
             default:
                 
-                $plugin->getLogger()->info($plugin->colorMessage("&4Unidentifiable channel. Please check your configuration file."));
+                $plugin->getLogger()->info($plugin->colorMessage("§4Nicht identifizierbarer Kanal. Bitte die Einstellung in der Config überprüfen."));
                 $server->getScheduler()->cancelTask($this->getTaskId());
         }
     }
