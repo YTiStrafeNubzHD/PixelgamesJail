@@ -26,7 +26,6 @@ use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
-use pocketmine\utils\Utils;
 
 use Authors\PixelgamesJail\commands\BailCommand;
 use Authors\PixelgamesJail\commands\DeljailCommand;
@@ -142,6 +141,11 @@ class Jail extends PluginBase implements JailAPI
      * @return array
      */
 
+    public function onLoad()
+    {
+        $this->getLogger()->info("Laden...");
+    }
+    
     public function getCommandMessage(string $command, bool $lang = false) : array
     {
 
@@ -172,8 +176,9 @@ class Jail extends PluginBase implements JailAPI
 
     public function onEnable()
     {
-
-        $this->getLogger()->info("Loading configurations...");
+        $this->getLogger()->info("Aktiviert");
+        
+        $this->getLogger()->info("Lade Konfigurierung...");
 
         if (is_dir($this->getDataFolder()) !== true) {
             mkdir($this->getDataFolder());
@@ -192,8 +197,8 @@ class Jail extends PluginBase implements JailAPI
                 }
 
                 $oldV = (string)$this->getConfig()->get("v");
-                $this->getLogger()->info("Update found!  Updating configuration...");
-                $this->getLogger()->info("All settings are being reset. The old config is saved in the plugin data folder.");
+                $this->getLogger()->info("Update gefunden!  Konfigurierung wird geupdatet...");
+                $this->getLogger()->info("Alle Einstellungen werden zurückgesetzt. Die alte Config wird im Plugin-Dateiordner gespeichert.");
 
                 if (file_exists($this->getDataFolder() . "config.old.v" . $oldV . ".yml") !== false) {
                     unlink($this->getDataFolder() . "config.old.v" . $oldV . ".yml");
@@ -223,7 +228,7 @@ class Jail extends PluginBase implements JailAPI
         }
 
         if ($this->eco !== null) {
-            $this->getLogger()->info($this->colorMessage("Loaded with " . $this->getEco()->getName() . "!"));
+            $this->getLogger()->info($this->colorMessage("Geladen mit " . $this->getEco()->getName() . "!"));
         }
 
         $t = $this->data->getAll();
@@ -258,25 +263,25 @@ class Jail extends PluginBase implements JailAPI
         $this->getServer()->getPluginManager()->registerEvents(new BailListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new SellhandListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new ResetmineListener($this), $this);
-        $this->getLogger()->info($this->colorMessage("&eChecking data compatibility..."));
+        $this->getLogger()->info($this->colorMessage("§eÜberprüfe Datenkompatibilität..."));
 
         if (version_compare($oldVersion, $this->getDescription()->getVersion(), ">=") && $this->updateSettings($oldVersion) !== false) {
-            $this->getLogger()->info($this->colorMessage("All data is compatible to this version!"));
+            $this->getLogger()->info($this->colorMessage("Alle Daten sind mit dieser Version kompatibel!"));
         }
 
-        $this->getLogger()->info($this->colorMessage("&aLoaded Successfully!"));
+        $this->getLogger()->info($this->colorMessage("§aErfolgreich geladen!"));
 
         /* if ($this->getConfig()->get("scheduled-update-checker") !== false) {
-            $this->getLogger()->info($this->colorMessage("&eInitialized scheduled update checker"));
+            $this->getLogger()->info($this->colorMessage("§ePlanmäßiger UpdateChecker initialisiert"));
             $this->getScheduler()->scheduleRepeatingTask(new AutoUpdateChecker($this), 60 * 20 * (int)$this->getConfig()->get("scheduled-update-checker-interval"));
 
         } else if ($this->getConfig()->get("updater-startup-fetch") !== false) {
 
-            $this->getLogger()->info($this->colorMessage("&eFetching latest version from repository..."));
-            $this->getLogger()->info($this->colorMessage("&eResult will appear when server query is started."));
+            $this->getLogger()->info($this->colorMessage("§eNeueste Daten werden vom Repository abgerufen..."));
+            $this->getLogger()->info($this->colorMessage("§eDas Ergebnis wird erscheinen, wenn die Serverabfrage (server query) gestartet ist."));
 
             if (Utils::getOS() == "ios" || Utils::getOS() == "android") {
-                $this->getLogger()->info($this->colorMessage("&4Error: Mobile hosted servers are not supported!"));
+                $this->getLogger()->info($this->colorMessage("§4Fehler: Mobil gehostete Server werden nicht unterstützt!"));
 
             } else {
 
@@ -306,6 +311,8 @@ class Jail extends PluginBase implements JailAPI
 
         $this->data->setAll($t);
         $this->data->save();
+        
+        $this->getLogger()->info("Deaktiviert");
     }
 
     /**
@@ -327,12 +334,12 @@ class Jail extends PluginBase implements JailAPI
                     $j[$jail]["allow-visit"] = $this->getConfig()->get("allow-visit");
 
                     if ($no_update !== false) $no_update = false;
-                    $this->getLogger()->info($this->colorMessage("Updating " . $jail . "'s data"));
+                    $this->getLogger()->info($this->colorMessage("Daten von " . $jail . " werden geupdatet"));
                 }
 
                 if (isset($j[$jail]["allow-escape-area"]) !== false) {
                     unset($j[$jail]["allow-escape-area"]);
-                    $this->getLogger()->info($this->colorMessage("Updating " . $jail . "'s data"));
+                    $this->getLogger()->info($this->colorMessage("Daten von " . $jail . " werden geupdatet"));
                 }
             }
 
@@ -346,7 +353,7 @@ class Jail extends PluginBase implements JailAPI
                     $t[$name]["VoteForJail"]["votedBy"] = [];
 
                     if ($no_update !== false) $no_update = false;
-                    $this->getLogger()->info($this->colorMessage("Updating " . $name . "'s data"));
+                    $this->getLogger()->info($this->colorMessage("Daten von " . $name . " werden geupdatet"));
                 }
             }
 
@@ -529,7 +536,7 @@ class Jail extends PluginBase implements JailAPI
      * @return bool
      */
 
-    public function jail(Player $player, string $jail_name, int $time = -1, string $reason = "no reason"): bool
+    public function jail(Player $player, string $jail_name, int $time = -1, string $reason = "kein Grund"): bool
     {
 
         $t = $this->data->getAll();
@@ -573,7 +580,7 @@ class Jail extends PluginBase implements JailAPI
                 $j[$jail_name]["pos"]["y"],
                 $j[$jail_name]["pos"]["z"],
                 $this->getServer()->getLevelByName($j[$jail_name]["pos"]["level"])));
-        $this->getLogger()->info($this->colorMessage("&6Jailed player " . strtolower($player->getName()) . " for " . ($time == -1 ? "infinite time" : ($time > 1 ? $time . " " . $this->getConfig()->get("time-unit") . "s" : $time . " " . $this->getConfig()->get("time-unit"))) . "\nReason: " . $reason));
+        $this->getLogger()->info($this->colorMessage("§6Spieler " . strtolower($player->getName()) . " wurde für " . ($time == -1 ? "unbegrenzte Zeit" : ($time > 1 ? $time . " " . $this->getConfig()->get("time-unit") . " eingesperrt" : $time . " " . $this->getConfig()->get("time-unit"))) . "\nGrund: " . $reason));
         return true;
     }
 
@@ -627,7 +634,7 @@ class Jail extends PluginBase implements JailAPI
 
         if ($player !== null) {
             $player->setGamemode($gm);
-            //The spawn location can be changed by executing '/setspawn' command in EssentialsPE
+            //Der Spawn kann mit '/setspawn' von EssentialsPE gesetzt werden
             $player->teleport($this->getServer()->getDefaultLevel()->getSpawnLocation());
             $player->getInventory()->clearAll();
             $player->getInventory()->setContents($contents);
@@ -641,12 +648,12 @@ class Jail extends PluginBase implements JailAPI
             $this->data->save();
         }
 
-        $this->getLogger()->info($this->colorMessage("&6Unjailed player " . $player_name));
+        $this->getLogger()->info($this->colorMessage("§6Spieler " . $player_name . " wurde freigelassen"));
         return true;
     }
 
     /**
-     * Allows checking offline players
+     * Erlaubt das Überprüfen von Spielern, die offline sind
      * @param string $player_name
      * @return bool
      */
@@ -853,7 +860,7 @@ class Jail extends PluginBase implements JailAPI
         $player->sendMessage(str_replace("%votes%", $t[strtolower($player_name)]["VoteForJail"]["votes"], str_replace("%max%", $this->getConfig()->get("votes-to-jail-player"), $this->getMessage("vote.target.voteAdded"))));
 
         if ($t[strtolower($player_name)]["VoteForJail"]["votes"] >= $this->getConfig()->get("votes-to-jail-player")) {
-            $this->jail($player, array_rand(array_keys($this->data1->getAll())), 45, "Jailed automatically due to enough votes");
+            $this->jail($player, array_rand(array_keys($this->data1->getAll())), 45, "Automatisch eingesperrt wegen ausreichend Votes");
             $t[strtolower($player_name)]["VoteForJail"]["votes"] = 0;
             $t[strtolower($player_name)]["VoteForJail"]["votedBy"] = [];
             $this->data->setAll($t);
@@ -874,7 +881,8 @@ class Jail extends PluginBase implements JailAPI
         $t = $this->data->getAll();
 
         if ($this->playerProfileExists(strtolower($player_name)) !== true) {
-            //This is kind of an issue. We wouldn't know if the player has 0 votes or the player hasn't joined the server before.
+            //Das ist sowas wie ein Issue. Wir würden nicht wissen, ob ein Spieler 0 Votes hat oder der Spieler noch nie auf den Server gejoint ist.
+            //(This is kind of an issue. We wouldn't know if the player has 0 votes or the player hasn't joined the server before.)
             return 0;
         }
 
@@ -909,7 +917,7 @@ class Jail extends PluginBase implements JailAPI
 
     /*
      * ####################
-     *       DATABASE
+     *       DATENBANK
      * ####################
      */
 
@@ -924,12 +932,12 @@ class Jail extends PluginBase implements JailAPI
         $connection = new \mysqli($host, $username, $password, $databaseName);
 
         if ($connection->connect_error) {
-            $this->getLogger()->info("SQL Server connection error: " . $connection->connect_error);
+            $this->getLogger()->info("SQL-Server-Verbindungsfehler: " . $connection->connect_error);
             return false;
         }
 
         $this->connection = $connection;
-        $this->getLogger()->info("SQL server connection detected!");
+        $this->getLogger()->info("SQL-Serververbindung erkannt!");
         return true;
     }*/
 }
