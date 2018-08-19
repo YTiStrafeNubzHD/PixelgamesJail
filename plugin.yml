@@ -1,7 +1,7 @@
 name: PixelgamesJail
 main: Authors\PixelgamesJail\Jail
 api: [3.0.0, 4.0.0]
-version: 1.0#
+version: 1.0.1#
 author: hoyinm14mc, iStrafeNubzHDyt
 description: Ein erweitertes Gefängnis-Bestrafungssystem für PocketMine-MP-Server
 load: POSTWORLD
@@ -74,7 +74,7 @@ commands:
     usage: /jailsellhand
 
   jailresetmine:
-    descripiton: Resete deine Gefängnismine
+    description: Resete deine Gefängnismine
     permission: jail.command.jailresetmine
     usage: /jailresetmine
 

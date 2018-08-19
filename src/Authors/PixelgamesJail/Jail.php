@@ -197,7 +197,7 @@ class Jail extends PluginBase implements JailAPI
                 }
 
                 $oldV = (string)$this->getConfig()->get("v");
-                $this->getLogger()->info("Update gefunden!  Konfigurierung wird geupdatet...");
+                $this->getLogger()->info("Update gefunden! Konfigurierung wird geupdatet...");
                 $this->getLogger()->info("Alle Einstellungen werden zurückgesetzt. Die alte Config wird im Plugin-Dateiordner gespeichert.");
 
                 if (file_exists($this->getDataFolder() . "config.old.v" . $oldV . ".yml") !== false) {
