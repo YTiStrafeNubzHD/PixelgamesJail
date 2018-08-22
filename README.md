@@ -10,5 +10,3 @@ It is not advised to use this plugin because the main language is not English. I
 [DE] Dies ist ein für den PixelCity MCPE-Server modifiziertes Plugin.
 
 PixelgamesJail is running on PixelCity (PIXELGAMES by YT_iStrafeNubzHD)
-
-NOTE: Dev Build #21 on poggit is for API 3.0.0, newer Builds (22 and newer) are for API 4.0.0
