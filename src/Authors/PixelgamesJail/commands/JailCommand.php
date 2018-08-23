@@ -33,10 +33,11 @@ class JailCommand extends BaseCommand
             case "jail":
 
                 if (count($args) < 3) {
-                    return false;
+                    $issuer->sendMessage("§c[PGJail] Benutzung: /jail <Spieler> <Gefängnisname> <Zeit in Min.|-i> <Grund..>");
+                    return true;
                 }
 
-                if ($issuer->hasPermission("jail.command.jail") !== true) {
+                if ($issuer->hasPermission("pgjail.command.jail") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }
@@ -75,8 +76,8 @@ class JailCommand extends BaseCommand
                     return true;
                 }
 
-                if ($this->getPlugin()->jail($target, $jail, ($time == "-i" ? -1 : $time), (isset($args[3]) ? $reason : "no reason")) !== false) {
-                    $issuer->sendMessage(str_replace("%player%", strtolower($target->getName()), str_replace("%time%", ($time == "-i" ? "infinite" : $time), $this->getPlugin()->getMessage("jail.success.sender"))));
+                if ($this->getPlugin()->jail($target, $jail, ($time == "-i" ? -1 : $time), (isset($args[3]) ? $reason : "ohne Grund")) !== false) {
+                    $issuer->sendMessage(str_replace("%player%", strtolower($target->getName()), str_replace("%time%", ($time == "-i" ? "-unendlich-" : $time), $this->getPlugin()->getMessage("jail.success.sender"))));
                 }
                 return true;
                 break;
@@ -92,4 +93,5 @@ class JailCommand extends BaseCommand
         return implode(" ", $msg);
     }
 }
+
 
