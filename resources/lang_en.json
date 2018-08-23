@@ -16,7 +16,7 @@
   "bail.not.use": "§c[PGJail] Du kannst dich nicht freikaufen, da du permanent eingesperrt bist",
   "bail.money.remaining": "§e[PGJail] Bank: -$%deduction% | Du hast $%remaining% übrig",
   "bail.money.not.enough": "§c[PGJail] Du hast nicht genug Geld, um dich freizukaufen!\n§cDu brauchst $%money%",
-  "deljail.success": "§e[PGJail] Gefängnis erfolgreich entfernt",
+  "deljail.success": "§a[PGJail] Gefängnis erfolgreich entfernt",
   "setjail.must.creative.mode": "§c[PGJail] Du musst dich im Kreativmodus (Gamemode 1) befinden, um diesen Befehl auszuführen",
   "setjail.initialize.2": "§e[PGJail] Bitte tippe die Position an, wohin der Gefangene teleportiert werden soll, wenn er in dieses Gefängnis eingesperrt wird",
   "setjail.initialize.3": "§7[PGJail] Rejoine, um den Erstellmodus des Jails abzubrechen",
