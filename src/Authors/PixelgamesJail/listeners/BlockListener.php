@@ -38,14 +38,14 @@ class BlockListener extends BaseListener
         $mines = new Mines($this->getPlugin());
 
         foreach ($j as $jail => $value) {
-            if ($this->getPlugin()->insideJail($jail, new Position($event->getBlock()->x, $event->getBlock()->y, $event->getBlock()->z, $event->getBlock()->getLevel())) && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true && $event->getPlayer()->hasPermission("jail.modify.bypass") !== true) {
+            if ($this->getPlugin()->insideJail($jail, new Position($event->getBlock()->x, $event->getBlock()->y, $event->getBlock()->z, $event->getBlock()->getLevel())) && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true && $event->getPlayer()->hasPermission("pgjail.modify.bypass") !== true) {
                 $event->setCancelled(true);
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.block.is.restricted"));
             }
         }
 
         if ($this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== false && $cfg->get("allow-block-break") !== true) {
-            if ($mines->hasMineSet($t[strtolower($event->getPlayer()->getName())]["jail"]) !== true && $event->getPlayer()->hasPermission("jail.override.restrictions") !== true) {
+            if ($mines->hasMineSet($t[strtolower($event->getPlayer()->getName())]["jail"]) !== true && $event->getPlayer()->hasPermission("pgjail.override.restrictions") !== true) {
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.not.allowed.do.this"));
                 $event->setCancelled(true);
 
@@ -54,7 +54,7 @@ class BlockListener extends BaseListener
                     $event->getPlayer()->sendMessage(str_replace("%time%", $cfg->get("penalty-time"), $this->getPlugin()->getMessage("penalty.added.prisoner")));
                 }
 
-            } else if ($mines->hasMineSet($t[strtolower($event->getPlayer()->getName())]["jail"]) !== false && $mines->insideMine($t[strtolower($event->getPlayer()->getName())]["jail"], new Position($event->getBlock()->x, $event->getBlock()->y, $event->getBlock()->z, $event->getBlock()->getLevel())) !== true && $event->getPlayer()->hasPermission("jail.override.restrictions") !== true) {
+            } else if ($mines->hasMineSet($t[strtolower($event->getPlayer()->getName())]["jail"]) !== false && $mines->insideMine($t[strtolower($event->getPlayer()->getName())]["jail"], new Position($event->getBlock()->x, $event->getBlock()->y, $event->getBlock()->z, $event->getBlock()->getLevel())) !== true && $event->getPlayer()->hasPermission("pgjail.override.restrictions") !== true) {
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.not.allowed.do.this"));
                 $event->setCancelled(true);
 
@@ -75,13 +75,13 @@ class BlockListener extends BaseListener
         $cfg = $this->getPlugin()->getConfig();
 
         foreach ($j as $jail => $value) {
-            if ($this->getPlugin()->insideJail($jail, new Position($event->getBlock()->x, $event->getBlock()->y, $event->getBlock()->z, $event->getBlock()->getLevel())) && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true && $event->getPlayer()->hasPermission("jail.modify.bypass") !== true) {
+            if ($this->getPlugin()->insideJail($jail, new Position($event->getBlock()->x, $event->getBlock()->y, $event->getBlock()->z, $event->getBlock()->getLevel())) && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true && $event->getPlayer()->hasPermission("pgjail.modify.bypass") !== true) {
                 $event->setCancelled(true);
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.block.is.restricted"));
             }
         }
 
-        if ($this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== false && $cfg->get("allow-block-place") !== true && $event->getPlayer()->hasPermission("jail.override.restrictions") !== true) {
+        if ($this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== false && $cfg->get("allow-block-place") !== true && $event->getPlayer()->hasPermission("pgjail.override.restrictions") !== true) {
             $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.not.allowed.do.this"));
             $event->setCancelled(true);
 

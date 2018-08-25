@@ -37,7 +37,7 @@ class JailsellhandCommand extends BaseCommand
         switch ($cmd->getName()) {
             case "jailsellhand":
 
-                if ($issuer->hasPermission("jail.command.jailsellhand") !== true) {
+                if ($issuer->hasPermission("pgjail.command.jailsellhand") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }

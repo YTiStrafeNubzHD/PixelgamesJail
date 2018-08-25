@@ -34,10 +34,11 @@ class TpjailCommand extends BaseCommand
             case "tpjail":
 
                 if (isset($args[0]) !== true) {
-                    return false;
+                    $issuer->sendMessage("§c[PGJail] Benutzung: /tpjail <Gefängnisname> <Spieler>");
+                    return true;
                 }
 
-                if ($issuer->hasPermission("jail.command.jailtp") !== true) {
+                if ($issuer->hasPermission("pgjail.command.jailtp") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }
