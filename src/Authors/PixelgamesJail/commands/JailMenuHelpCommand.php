@@ -7,7 +7,7 @@ use pocketmine\command\CommandSender;
 
 use Authors\PixelgamesJail\base\BaseCommand;
 
-class Jail_HelpCommand extends BaseCommand
+class JailMenuHelpCommand extends BaseCommand
 {
     public function onCommand(CommandSender $issuer, Command $cmd, string $label, array $args): bool {
         if ($cmd->getName() === "jail-help") {
