@@ -8,5 +8,4 @@ v0.5-alpha: AutoUpdate deaktiviert, Zeile entfernt
 v0.6-alpha: AutoUpdate deaktiviert (2) und Scheduler-Fix nach Servercrash; Allg. API-Update auf 3.0.0 und 4.0.0
 v1.0#: alles übersetzt, kleine Änderungen und onLoad hinzugefügt sowie Messages bei den anderen, -unused Import
 v1.0.1#: ein Leerzeichen zuviel in Message in Jail.php entfernt; typo bei command description behoben (/jailresetmine)
-v2.0#:  ungenutzten Import entfernt, alle Permissions umbenannt, +Info und Help, eine Farbe geändert, Übersetzungen
 v

@@ -240,8 +240,6 @@ class Jail extends PluginBase implements JailAPI
         }
 
         self::$instance = $this;
-        $this->getCommand("jail-info")->setExecutor(new Jail_InfoCommand($this));
-        $this->getCommand("jail-help")->setExecutor(new Jail_HelpCommand($this));
         $this->getCommand("deljail")->setExecutor(new DeljailCommand($this));
         $this->getCommand("jail")->setExecutor(new JailCommand($this));
         $this->getCommand("jails")->setExecutor(new JailsCommand($this));
@@ -582,7 +580,7 @@ class Jail extends PluginBase implements JailAPI
                 $j[$jail_name]["pos"]["y"],
                 $j[$jail_name]["pos"]["z"],
                 $this->getServer()->getLevelByName($j[$jail_name]["pos"]["level"])));
-        $this->getLogger()->info($this->colorMessage("§6Spieler " . strtolower($player->getName()) . " wurde für " . ($time == -1 ? "unbegrenzte Zeit" : ($time > 1 ? $time . " " . $this->getConfig()->get("time-unit") . "eingesperrt" : $time . " " . $this->getConfig()->get("time-unit"))) . "\nGrund: " . $reason));
+        $this->getLogger()->info($this->colorMessage("§6Spieler " . strtolower($player->getName()) . " wurde für " . ($time == -1 ? "unbegrenzte Zeit" : ($time > 1 ? $time . " " . $this->getConfig()->get("time-unit") . " eingesperrt" : $time . " " . $this->getConfig()->get("time-unit"))) . "\nGrund: " . $reason));
         return true;
     }
 

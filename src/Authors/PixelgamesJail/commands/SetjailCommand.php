@@ -34,8 +34,7 @@ class SetjailCommand extends BaseCommand
             case "setjail":
 
                 if (isset($args[0]) !== true) {
-                    $issuer->sendMessage("§c[PGJail] Benutzung: /setjail <Gefängnisname> [args...]");
-                    return true;
+                    return false;
                 }
 
                 if ($issuer instanceof Player !== true) {
@@ -43,7 +42,7 @@ class SetjailCommand extends BaseCommand
                     return true;
                 }
 
-                if ($issuer->hasPermission("pgjail.command.setjail") !== true) {
+                if ($issuer->hasPermission("jail.command.setjail") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }

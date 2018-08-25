@@ -33,11 +33,10 @@ class DeljailCommand extends BaseCommand
             case "deljail":
 
                 if (isset($args[0]) !== true) {
-                    $issuer->sendMessage("§c[PGJail] Benutzung: /deljail <Gefängnisname>");
-                    return true;
+                    return false;
                 }
 
-                if ($issuer->hasPermission("pgjail.command.deljail") !== true) {
+                if ($issuer->hasPermission("jail.command.deljail") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }

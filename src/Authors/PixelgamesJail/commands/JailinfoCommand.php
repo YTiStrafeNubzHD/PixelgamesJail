@@ -33,14 +33,13 @@ class JailinfoCommand extends BaseCommand
         switch ($cmd->getName()) {
             case "jailinfo":
 
-                if ($issuer->hasPermission("pgjail.command.jailinfo") !== true) {
+                if ($issuer->hasPermission("jail.command.jailinfo") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }
 
                 if (isset($args[0]) !== true) {
-                    $issuer->sendMessage("§c[PGJail] Benutzung: /jailinfo <Gefängnisname>");
-                    return true;
+                    return false;
                 }
 
                 $jail = $args[0];
@@ -84,7 +83,7 @@ class JailinfoCommand extends BaseCommand
                 $mines = new Mines($this->getPlugin());
                 $info_isMineSet = (string)($mines->hasMineSet($jail) ? "true" : "false");
                 
-                //Informations-Output an den Issuer
+                //Information output to issuer
 
                 $issuer->sendMessage(str_replace("%jail%", $jail,
                     str_replace("%pos%", $info_JailPos,

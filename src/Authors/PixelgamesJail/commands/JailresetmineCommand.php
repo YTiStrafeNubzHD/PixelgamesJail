@@ -34,7 +34,7 @@ class JailresetmineCommand extends BaseCommand
         switch ($cmd->getName()) {
             case "jailresetmine":
 
-                if ($issuer->hasPermission("pgjail.command.jailresetmine") !== true) {
+                if ($issuer->hasPermission("jail.command.jailresetmine") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }

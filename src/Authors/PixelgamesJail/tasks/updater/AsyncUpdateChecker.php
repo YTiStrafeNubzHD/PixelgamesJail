@@ -53,9 +53,7 @@ class AsyncUpdateChecker extends AsyncTask
             CURLOPT_NOBODY => true
         ]);
 
-        if ($httpCode != 302) {
-            return;
-        }
+        if ($httpCode != 302) return;
         foreach ($headerGroups as $headers) {
             foreach ($headers as $name => $value) {
                 if ($name === "x-poggit-resolved-version") {
@@ -64,9 +62,7 @@ class AsyncUpdateChecker extends AsyncTask
             }
         }
 
-        if (!isset($arr["poggit_ver"])) {
-            throw new \Exception("API Error");
-        }
+        if (!isset($arr["poggit_ver"])) throw new \Exception("API Error");
         $arr["github_ver"] = $git_iden_latest["tag_name"];
         $arr["github_desc"] = $git_iden_latest["body"];
         $key = 0;
