@@ -33,10 +33,11 @@ class SwitchjailCommand extends BaseCommand
             case "switchjail":
 
                 if (isset($args[1]) !== true) {
-                    return false;
+                    $issuer->sendMessage("§c[PGJail] Benutzung: /switchjail <Spieler> <Gefängnisname>");
+                    return true;
                 }
 
-                if ($issuer->hasPermission("jail.command.switchjail") !== true) {
+                if ($issuer->hasPermission("pgjail.command.switchjail") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }
