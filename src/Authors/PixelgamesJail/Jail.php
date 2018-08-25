@@ -240,8 +240,8 @@ class Jail extends PluginBase implements JailAPI
         }
 
         self::$instance = $this;
-        $this->getCommand("jail-info")->setExecutor(new Jail_InfoCommand($this));
-        $this->getCommand("jail-help")->setExecutor(new Jail_HelpCommand($this));
+        $this->getCommand("jail-info")->setExecutor(new JailMenuInfoCommand($this));
+        $this->getCommand("jail-help")->setExecutor(new JailMenuHelpCommand($this));
         $this->getCommand("deljail")->setExecutor(new DeljailCommand($this));
         $this->getCommand("jail")->setExecutor(new JailCommand($this));
         $this->getCommand("jails")->setExecutor(new JailsCommand($this));
