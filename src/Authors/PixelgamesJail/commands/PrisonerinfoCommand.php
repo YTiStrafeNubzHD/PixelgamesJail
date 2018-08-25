@@ -32,14 +32,13 @@ class PrisonerinfoCommand extends BaseCommand
         switch ($cmd->getName()) {
             case "prisonerinfo":
 
-                if ($issuer->hasPermission("pgjail.command.prisonerinfo") !== true) {
+                if ($issuer->hasPermission("jail.command.prisonerinfo") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }
 
                 if (isset($args[0]) !== true) {
-                    $issuer->sendMessage("§c[PGJail] Benutzung: /prisonerinfo <Spieler>");
-                    return true;
+                    return false;
                 }
 
                 $prisoner = $args[0];

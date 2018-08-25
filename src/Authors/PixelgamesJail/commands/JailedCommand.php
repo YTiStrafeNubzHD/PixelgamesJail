@@ -32,7 +32,7 @@ class JailedCommand extends BaseCommand
         switch (strtolower($cmd->getName())) {
             case "jailed":
                 
-                if ($issuer->hasPermission("pgjail.command.jailed") !== true) {
+                if ($issuer->hasPermission("jail.command.jailed") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }

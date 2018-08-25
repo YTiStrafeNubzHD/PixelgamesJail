@@ -33,11 +33,10 @@ class VotejailCommand extends BaseCommand
             case "votejail":
 
                 if (isset($args[0]) !== true) {
-                    $issuer->sendMessage("§c[PGJail] Benutzung: /votejail <Spieler>");
-                    return true;
+                    return false;
                 }
 
-                if ($issuer->hasPermission("pgjail.command.votejail") !== true) {
+                if ($issuer->hasPermission("jail.command.votejail") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }

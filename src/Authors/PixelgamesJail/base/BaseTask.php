@@ -21,6 +21,7 @@
 
 namespace Authors\PixelgamesJail\base;
 
+use pocketmine\scheduler\PluginTask;
 use pocketmine\scheduler\Task;
 
 use Authors\PixelgamesJail\Jail;
