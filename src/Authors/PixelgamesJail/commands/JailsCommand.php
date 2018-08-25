@@ -32,7 +32,7 @@ class JailsCommand extends BaseCommand
         switch (strtolower($cmd->getName())) {
             case "jails":
 
-                if ($issuer->hasPermission("jail.command.jails") !== true) {
+                if ($issuer->hasPermission("pgjail.command.jails") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }
@@ -43,4 +43,3 @@ class JailsCommand extends BaseCommand
         }
     }
 }
-

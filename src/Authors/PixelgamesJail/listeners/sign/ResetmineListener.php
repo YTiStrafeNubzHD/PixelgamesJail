@@ -49,7 +49,7 @@ class ResetmineListener extends BaseListener
         $sign = $sign->getText();
 
         if ($sign[0] == $this->getPlugin()->colorMessage("&7[" . $this->getPlugin()->getMessage("sign.resetmine.tag") . "&7]")) {
-            if ($event->getPlayer()->hasPermission("jail.sign.destroy") !== false && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true) {
+            if ($event->getPlayer()->hasPermission("pgjail.sign.destroy") !== false && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true) {
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("sign.destroy.success"));
                 return true;
 
@@ -81,7 +81,7 @@ class ResetmineListener extends BaseListener
             return false;
         }
 
-        if ($event->getPlayer()->hasPermission("jail.sign.create") !== true) {
+        if ($event->getPlayer()->hasPermission("pgjail.sign.create") !== true) {
             $event->setLine(0, null);
             $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("no.permission"));
             return false;
@@ -139,7 +139,7 @@ class ResetmineListener extends BaseListener
                 return false;
             }
 
-            if ($event->getPlayer()->hasPermission("jail.sign.use") !== true) {
+            if ($event->getPlayer()->hasPermission("pgjail.sign.use") !== true) {
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("no.permission"));
                 return false;
             }

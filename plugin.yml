@@ -1,7 +1,7 @@
 name: PixelgamesJail
 main: Authors\PixelgamesJail\Jail
 api: [3.0.0, 4.0.0]
-version: 1.0.1#
+version: 2.0#
 author: hoyinm14mc, iStrafeNubzHDyt
 description: Ein erweitertes Gefängnis-Bestrafungssystem für PocketMine-MP-Server
 load: POSTWORLD
@@ -9,176 +9,193 @@ load: POSTWORLD
 commands:
   deljail:
     description: Entfernt ein Gefängnis
-    permission: jail.command.deljail
+    permission: pgjail.command.deljail
     usage: /deljail <Gefängnisname>
 
   setjail:
     description: Setzt ein Gefängnis
-    permission: jail.command.setjail
+    permission: pgjail.command.setjail
     usage: /setjail <Gefängnisname> [args...]
     aliases: ["jailset"]
 
   jails:
     description: Zeigt eine Liste aller verfügbaren Gefängnisse
-    permission: jail.command.jails
+    permission: pgjail.command.jails
     usage: /jails
     aliases: ["jaillist"]
 
   jail:
     description: Sperrt einen Spieler ein
-    permission: jail.command.jail
+    permission: pgjail.command.jail
     usage: /jail <Spieler> <Gefängnisname> <Zeit in Min.|-i> <Grund..>
 
   unjail:
     description: Befreit einen Spieler, der online oder offline ist
-    permission: jail.command.unjail
+    permission: pgjail.command.unjail
     usage: /unjail <Spieler>
 
   jailed:
     description: Zeigt einer Liste aller Gefangenen
-    permission: jail.command.jailed
+    permission: pgjail.command.jailed
     usage: /jailed
     aliases: ["prisoners"]
 
   switchjail:
     description: Verlegt einen Gefangenen in ein anderes Gefängnis
-    permission: jail.command.switchjail
+    permission: pgjail.command.switchjail
     usage: /switchjail <Spieler> <Gefängnisname>
     aliases: ["transferjail", "jailswitch"]
 
   tpjail:
     description: Teleportiert einen Spieler zu einem Gefängnis
-    permission: jail.command.jailtp
+    permission: pgjail.command.jailtp
     usage: /tpjail <Gefängnisname> <Spieler>
     aliases: ["jailtp"]
 
   bail:
     description: Kaufe dich für Geld aus dem Gefängnis frei
-    permission: jail.command.bail
+    permission: pgjail.command.bail
     usage: /bail
 
   votejail:
     description: Votet einen Spieler in Gefängnis
-    permission: jail.command.votejail
+    permission: pgjail.command.votejail
     usage: /votejail <Spieler>
     aliases: ["jailvote"]
 
   jailmine:
     description: Einstellungen für Gefängnisminen
-    permission: jail.command.jailmine
+    permission: pgjail.command.jailmine
     usage: /jailmine <reset|set|remove|check> <Gefängnisname(mine)>
 
   jailsellhand:
     description: Verkaufe deine gefarmten Erze, um Geld zu erhalten
-    permission: jail.command.jailsellhand
+    permission: pgjail.command.jailsellhand
     usage: /jailsellhand
 
   jailresetmine:
     description: Resete deine Gefängnismine
-    permission: jail.command.jailresetmine
+    permission: pgjail.command.jailresetmine
     usage: /jailresetmine
 
   jailinfo:
     description: Zeigt Informationen über ein Gefängnis
-    permission: jail.command.jailinfo
+    permission: pgjail.command.jailinfo
     usage: /jailinfo <Gefängnisname>
     aliases: ["jailcheck"]
 
   prisonerinfo:
     description: Zeigt Informationen über einen Gefangenen
-    permission: jail.command.prisonerinfo
+    permission: pgjail.command.prisonerinfo
     usage: /prisonerinfo <Spieler>
 
+  jail-info:
+    description: Zeigt Details über das Plugin
+    permission: pgjail.command.jail.info
+    usage: /jail-info
     
-permission:
-  jail.override.restrictions:
+  jail-help:
+    description: Zeigt ein Hilfemenü an
+    permission: pgjail.command.jail.help
+    usage: /jail-help
+    
+permissions:
+  pgjail.override.restrictions:
     default: false
     description: Erlaubt es inhaftierten Spielern, Einschränkungen zu ignorieren
 
-  jail.command.setjail:
+  pgjail.command.setjail:
     default: op
     description: Das Recht, ein Gefängnis zu setzen
 
-  jail.command.deljail:
+  pgjail.command.deljail:
     default: op
     description: Das Recht, ein Gefängnis zu entfernen
 
-  jail.command.jails:
+  pgjail.command.jails:
     default: op
     description: Das Recht, alle verfügbaren Gefängnisse aufzulisten
 
-  jail.command.jail:
+  pgjail.command.jail:
     default: op
     description: Das Recht, Spieler in ein Gefängnis zu sperren
 
-  jail.command.unjail:
+  pgjail.command.unjail:
     default: op
     description: Das Recht, Gefangene, die online/offline sind, freizulassen
 
-  jail.command.jailed:
+  pgjail.command.jailed:
     default: op
     description: Das Recht, alle Gefangenen aufzulisten
 
-  jail.command.switchjail:
+  pgjail.command.switchjail:
     default: op
     description: Das Recht, einen Gefangenen in ein anderes Gefängnis zu verlegen
 
-  jail.command.jailtp:
+  pgjail.command.jailtp:
     default: true
     description: Das Recht, ein Gefängnis besuchen zu können
 
-  jail.command.bail:
+  pgjail.command.bail:
     default: true
     description: Das Recht, sich aus dem Gefängnis freizukaufen
 
-  jail.command.jailmine:
+  pgjail.command.jailmine:
     default: op
     description: Das Recht, Gefängnisminen zu verwalten
 
-  jail.command.votejail:
+  pgjail.command.votejail:
     default: true
     description: Das Recht, einen Spieler, der sich schlecht verhält, ins Gefängnis zu voten
 
-  jail.uuidcheck.bypass:
+  pgjail.uuidcheck.bypass:
     default: false
     description: Das Recht, den UUID-Check beim Login zu umgehen
 
-  jail.sign.destroy:
+  pgjail.sign.destroy:
     default: op
     description: Das Recht, Bail-Schilder zu entfernen
 
-  jail.sign.create:
+  pgjail.sign.create:
     default: op
     description: Das Recht, Bail-Schilder zu erstellen
 
-  jail.sign.use:
+  pgjail.sign.use:
     default: true
     description: Das Recht, sich durch ein Bail-Schild freizukaufen
 
-  jail.modify.bypass:
+  pgjail.modify.bypass:
     default: op
     description: Das Recht, Gefängnisse zu bebauen/modifizieren
 
-  jail.command.jailsellhand:
+  pgjail.command.jailsellhand:
     default: true
     description: Das Recht für Gefangene, ihre in der Gefängnismine gefarmten Erze für Geld zu verkaufen
 
-  jail.command.jailresetmine:
+  pgjail.command.jailresetmine:
     default: true
     description: Das Recht für Gefangene, ihre Gefängnismine zu reseten
 
-  jail.command.jailinfo:
+  pgjail.command.jailinfo:
     default: op
     description: Das Recht, Infomationen über ein Gefängnis abzurufen
 
-  jail.command.prisonerinfo:
+  pgjail.command.prisonerinfo:
     default: op
     description: Das Recht, Informationen über einen Gefangenen abzurufen
 
-  jail.showInOutMessage:
+  pgjail.showInOutMessage:
     default: true
     description: Das Recht, für das Betreten/Verlassen eines Gefängnisses eine Meldung zu erhalten
 
-  jail.visit.bypass:
+  pgjail.visit.bypass:
     default: op
     description: Das Recht, jedes Gefängnis besuchen zu dürfen
+    
+  pgjail.command.jail.info:
+    default: true
+    description: Das Recht, sich Details über das Plugin anzeigen zu lassen
+    
+  pgjail.command.jail.help:
+    default: true
+    description: Das Recht, sich ein Hilfemenü anzeigen zu lassen

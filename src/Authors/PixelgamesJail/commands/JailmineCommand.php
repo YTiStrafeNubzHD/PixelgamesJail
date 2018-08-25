@@ -39,13 +39,14 @@ class JailmineCommand extends BaseCommand
                     return true;
                 }
 
-                if ($issuer->hasPermission("jail.command.jailmine") !== true) {
+                if ($issuer->hasPermission("pgjail.command.jailmine") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }
 
                 if (isset($args[1]) !== true) {
-                    return false;
+                    $issuer->sendMessage("§c[PGJail] Benutzung: /jailmine <reset|set|remove|check> <Gefängnisname(mine)>");
+                    return true;
                 }
 
                 $jail = $args[1];

@@ -49,7 +49,7 @@ class BailListener extends BaseListener
         $sign = $sign->getText();
 
         if ($sign[0] == $this->getPlugin()->colorMessage("&7[" . $this->getPlugin()->getMessage("timer.broadcast.bail") . "&7]")) {
-            if ($event->getPlayer()->hasPermission("jail.sign.destroy") !== false && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true) {
+            if ($event->getPlayer()->hasPermission("pgjail.sign.destroy") !== false && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true) {
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("sign.destroy.success"));
                 return true;
 
@@ -128,7 +128,7 @@ class BailListener extends BaseListener
                 return false;
             }
 
-            if ($event->getPlayer()->hasPermission("jail.sign.use") !== true) {
+            if ($event->getPlayer()->hasPermission("pgjail.sign.use") !== true) {
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("no.permission"));
                 return false;
             }

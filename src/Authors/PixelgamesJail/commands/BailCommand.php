@@ -36,7 +36,7 @@ class BailCommand extends BaseCommand
         switch (strtolower($cmd->getName())) {
             case "bail":
 
-                if ($issuer->hasPermission("jail.command.bail") !== true) {
+                if ($issuer->hasPermission("pgjail.command.bail") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }

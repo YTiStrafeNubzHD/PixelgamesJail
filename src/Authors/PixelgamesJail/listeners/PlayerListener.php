@@ -49,7 +49,7 @@ class PlayerListener extends BaseListener
             $this->getPlugin()->data->save();
         }
 
-        if ($this->getPlugin()->getConfig()->get("check-UUID") !== false && $event->getPlayer()->hasPermission("jail.uuidcheck.bypass") !== true) {
+        if ($this->getPlugin()->getConfig()->get("check-UUID") !== false && $event->getPlayer()->hasPermission("pgjail.uuidcheck.bypass") !== true) {
             foreach ($t as $name => $value) {
                 if ($t[$name]["jailed"] !== false
                     && $name !== strtolower($event->getPlayer()->getName())
@@ -88,17 +88,17 @@ class PlayerListener extends BaseListener
         $msg = $event->getMessage();
 
         if ($this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== false) {
-            if ($cfg->get("allow-chat") !== true && $cfg->get("allow-command") !== false && $event->getPlayer()->hasPermission("jail.override.restrictions") !== true) {
+            if ($cfg->get("allow-chat") !== true && $cfg->get("allow-command") !== false && $event->getPlayer()->hasPermission("pgjail.override.restrictions") !== true) {
                 if ($msg{0} !== "/") {
                     $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.not.allowed.do.this"));
                     $event->setCancelled(true);
                 }
 
-            } elseif ($cfg->get("allow-chat") !== true && $cfg->get("allow-command") !== true && $event->getPlayer()->hasPermission("jail.override.restrictions") !== true) {
+            } elseif ($cfg->get("allow-chat") !== true && $cfg->get("allow-command") !== true && $event->getPlayer()->hasPermission("pgjail.override.restrictions") !== true) {
                 $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.not.allowed.do.this"));
                 $event->setCancelled(true);
 
-            } elseif ($cfg->get("allow-chat") !== false && $cfg->get("allow-command") !== true && $event->getPlayer()->hasPermission("jail.override.restrictions") !== true) {
+            } elseif ($cfg->get("allow-chat") !== false && $cfg->get("allow-command") !== true && $event->getPlayer()->hasPermission("pgjail.override.restrictions") !== true) {
                 if ($msg{0} == "/") {
                     $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.player.command.cancelled"));
                     $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.not.allowed.do.this"));
@@ -176,7 +176,7 @@ class PlayerListener extends BaseListener
         $t = $this->getPlugin()->data->getAll();
         $j = $this->getPlugin()->data1->getAll();
 
-        if ($event->getPlayer()->hasPermission("jail.showInOutMessage") !== false && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true) {
+        if ($event->getPlayer()->hasPermission("pgjail.showInOutMessage") !== false && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true) {
             foreach (array_keys($j) as $jail) {
                 if ($this->getPlugin()->insideJail($jail, $event->getPlayer()->getPosition()) !== false
                     && $this->getPlugin()->insideJail($jail, new Position($event->getFrom()->x, $event->getFrom()->y, $event->getFrom()->z, $event->getFrom()->getLevel())) !== true
@@ -206,7 +206,7 @@ class PlayerListener extends BaseListener
             $event->getPlayer()->sendPopup($this->getPlugin()->getMessage("listener.player.not.allowed.leave") . "\n\n\n\n");
         }
 
-        if ($event->getPlayer()->hasPermission("jail.visit.bypass") !== true
+        if ($event->getPlayer()->hasPermission("pgjail.visit.bypass") !== true
             && $this->getPlugin()->isJailed(strtolower($event->getPlayer()->getName())) !== true) {
 
             foreach (array_keys($j) as $jail) {
@@ -273,7 +273,7 @@ class PlayerListener extends BaseListener
 
         if ($this->getPlugin()->getConfig()->get("allow-item-drop") !== true
             && $this->getPlugin()->isJailed($event->getPlayer()->getName()) !== false
-            && $event->getPlayer()->hasPermission("jail.override.restrictions") !== true
+            && $event->getPlayer()->hasPermission("pgjail.override.restrictions") !== true
         ) {
             $event->getPlayer()->sendMessage($this->getPlugin()->getMessage("listener.not.allowed.do.this"));
             $event->setCancelled(true);

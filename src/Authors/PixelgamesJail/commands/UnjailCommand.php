@@ -33,10 +33,11 @@ class UnjailCommand extends BaseCommand
             case "unjail":
                 
                 if (isset($args[0]) !== true) {
-                    return false;
+                    $issuer->sendMessage("§c[PGJail] Benutzung: /unjail <Spieler>");
+                    return true;
                 }
 
-                if ($issuer->hasPermission("jail.command.unjail") !== true) {
+                if ($issuer->hasPermission("pgjail.command.unjail") !== true) {
                     $issuer->sendMessage($this->getPlugin()->getMessage("no.permission"));
                     return true;
                 }
@@ -56,4 +57,3 @@ class UnjailCommand extends BaseCommand
         }
     }
 }
-
