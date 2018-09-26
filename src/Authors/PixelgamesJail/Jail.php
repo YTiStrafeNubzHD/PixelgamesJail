@@ -32,6 +32,8 @@ use Authors\PixelgamesJail\commands\DeljailCommand;
 use Authors\PixelgamesJail\commands\JailCommand;
 use Authors\PixelgamesJail\commands\JailedCommand;
 use Authors\PixelgamesJail\commands\JailinfoCommand;
+use Authors\PixelgamesJail\commands\JailMenuInfoCommand;
+use Authors\PixelgamesJail\commands\JailMenuHelpCommand;
 use Authors\PixelgamesJail\commands\JailmineCommand;
 use Authors\PixelgamesJail\commands\JailresetmineCommand;
 use Authors\PixelgamesJail\commands\JailsCommand;
